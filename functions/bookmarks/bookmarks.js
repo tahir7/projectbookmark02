@@ -30,7 +30,7 @@ const resolvers = {
   Query: {
     bookmark: async (root, args, context) => {
       try{
-        var client = new faunadb.Client({ secret: process.env.FAUNADB_SERVER_SECRET });
+        var client = new faunadb.Client({ secret: 'fnAD61-NQjACA2hs1xp7B-hcs9l52c1rPJaV104i' });
         var result = await client.query(
           q.Map(
             q.Paginate(q.Match(q.Index("urltest1"))),
@@ -53,7 +53,7 @@ const resolvers = {
   Mutation: {
     addBookmark: async (_, {url,desc}) => {
       try {
-        var client = new faunadb.Client({ secret: "fnAD4WspdcACAZNBJB4bsHTdWy_AlTBNBabJNXPv" });
+        var client = new faunadb.Client({ secret: "fnAD61-NQjACA2hs1xp7B-hcs9l52c1rPJaV104i" });
         var result = await client.query(
           q.Create(
             q.Collection('links'),

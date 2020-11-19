@@ -53,12 +53,12 @@ export default function Home() {
 
         <h2>Add New Bookmark</h2>
         <label>
-            <b>Enter Bookmark URL</b> 
+            <b>Enter Bookmark URL</b> <br/>
             <input type="text" ref={node => urlField = node} />
         </label>
         <br />
         <label>
-            <b>Enter Bookmark Title</b> 
+            <b>Enter Bookmark Title</b>  <br/>
             <input type="text" ref={node => descField = node} />
         </label>
 

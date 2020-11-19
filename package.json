@@ -14,9 +14,13 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "@apollo/client": "^3.2.7",
+    "faunadb": "^4.0.0",
     "gatsby": "^2.26.1",
+    "graphql": "^15.4.0",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "apollo-server-lambda": "^2.18.1"
   },
   "devDependencies": {
     "prettier": "2.1.2"

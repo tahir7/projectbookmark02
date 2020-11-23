@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { useQuery, useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
 import  './styles.css'
-import Card from '../components/card';
+import Card from '../components/cards';
 
 const GET_BOOKMARKS = gql`
 {
@@ -29,23 +29,27 @@ export default function Home() {
 
     const { error, loading, data } = useQuery(GET_BOOKMARKS);
     const [addBookmark] = useMutation(ADD_BOOKMARK);
+
     const handleSubmit = () => {
         console.log(descField.value)
         console.log(urlField.value)
-        addBookmark({
-            variables: {
-                url: urlField.value,
-                desc: descField.value
-            },
-            refetchQueries: [{ query: GET_BOOKMARKS }]             
-        })        
-          urlField.value = ''
-          descField.value = ''      
+
+          addBookmark({
+              variables: {
+                  url: urlField.value,
+                  desc: descField.value
+              },
+              refetchQueries: [{ query: GET_BOOKMARKS }]             
+          })        
+            urlField.value = ''
+            descField.value = ''      
     }
+        
 
-    if (error)
+    if (error) {
+      console.log('error....... ', error)
         return <h3>{error}</h3>
-
+    }
     if (loading)
         return <h3>Loading..</h3>
 
@@ -68,9 +72,12 @@ export default function Home() {
 
         <h2>My Bookmark List</h2>
         {/* {JSON.stringify(data.bookmark)} */}
+        
+
+        
 
         <div className="card-container">
-            {data.bookmark.map((bm) => <Card url={bm.url} desc={bm.desc} key={bm.id} />)}
+            {data.bookmark.map((bm) => <Card id={bm.id} url={bm.url} desc={bm.desc} key={bm.id} />)}
         </div>
 
     </div>

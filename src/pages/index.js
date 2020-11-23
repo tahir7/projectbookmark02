@@ -2,7 +2,7 @@ import React from "react"
 import { useQuery, useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
 import  './styles.css'
-import Card from '../components/cards';
+import Card from '../components/card';
 
 const GET_BOOKMARKS = gql`
 {
